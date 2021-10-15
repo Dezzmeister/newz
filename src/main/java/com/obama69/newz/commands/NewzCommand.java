@@ -108,7 +108,10 @@ public class NewzCommand {
 		}
 		
 		final MutableComponent message = new TextComponent("Cleared news text").withStyle(ChatFormatting.GREEN);
-		source.sendMessage(message, source.getUUID());
+		
+		if (source != null) {
+			source.sendMessage(message, source.getUUID());
+		}
 		
 		return 1;
 	}
@@ -116,6 +119,7 @@ public class NewzCommand {
 	private static int setNewsText(final CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
 		final Entity source = context.getSource().getEntity();
 		final Component newsText = ComponentArgument.getComponent(context, "newsNbt");
+		
 		try {
 			Newz.session.changeNews(newsText);
 		} catch (IOException e) {
@@ -124,7 +128,10 @@ public class NewzCommand {
 		}
 		
 		final MutableComponent message = new TextComponent("Changed news text").withStyle(ChatFormatting.GREEN);
-		source.sendMessage(message, source.getUUID());
+		
+		if (source != null) {
+			source.sendMessage(message, source.getUUID());
+		}
 		
 		return 1;
 	}
