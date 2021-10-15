@@ -30,7 +30,7 @@ public class NewzCommand {
 				.requires(s -> s.hasPermission(0))
 				.then(
 						Commands.literal("set")
-						.requires(s -> s.hasPermission(3))
+						.requires(s -> s.hasPermission(2))
 						.then(
 								Commands.argument("newsNbt", ComponentArgument.textComponent())
 								.executes(NewzCommand::setNewsText)
@@ -38,12 +38,12 @@ public class NewzCommand {
 				)
 				.then(
 						Commands.literal("clear")
-						.requires(s -> s.hasPermission(3))
+						.requires(s -> s.hasPermission(2))
 						.executes(NewzCommand::clearNews)
 				)
 				.then(
 						Commands.literal("preview")
-						.requires(s -> s.hasPermission(3))
+						.requires(s -> s.hasPermission(2))
 						.executes(NewzCommand::previewNews)
 				)
 				.then(
